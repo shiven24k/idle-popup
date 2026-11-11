@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; script-src 'self'">
+  <title>Idle Popup</title>
+  <link rel="stylesheet" href="control.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Idle Popup</h1>
+      <p id="state" class="state">Running</p>
+    </header>
+
+    <dl>
+      <dt>Images</dt><dd id="images">–</dd>
+      <dt>Shows after</dt><dd id="idle">–</dd>
+      <dt>At most once every</dt><dd id="cooldown">–</dd>
+      <dt>On screen for</dt><dd id="display">–</dd>
+      <dt>Stays quiet during video / fullscreen</dt><dd id="suppress">–</dd>
+      <dt>Idle detection</dt><dd id="detection">–</dd>
+    </dl>
+
+    <label class="check">
+      <input type="checkbox" id="autostart">
+      Start at login
+    </label>
+
+    <div class="actions">
+      <button id="show" type="button" class="primary">Show now</button>
+      <button id="pause" type="button">Pause</button>
+      <button id="quit" type="button" class="danger">Quit</button>
+    </div>
+
+    <p class="hint">
+      Closing this window keeps Idle Popup running in the background. Run the app
+      again to reopen these controls; the tray icon may stay hidden on GNOME
+      without the AppIndicator extension.
+    </p>
+  </main>
+  <script src="control.js"></script>
+</body>
+</html>

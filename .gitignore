@@ -1,0 +1,6 @@
+node_modules/
+dist/
+release/
+.env
+content-preview/
+content/inbox/

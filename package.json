@@ -1,0 +1,62 @@
+{
+  "name": "idle-popup",
+  "version": "1.0.0",
+  "description": "A gentle screensaver that shows your own images when you have been idle. Windows, macOS and Linux.",
+  "author": {
+    "name": "Your Name",
+    "email": "you@example.com"
+  },
+  "homepage": "https://example.com",
+  "license": "MIT",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && electron .",
+    "dist": "tsc && electron-builder --publish never",
+    "dist:win": "tsc && electron-builder --win --publish never",
+    "dist:mac": "tsc && electron-builder --mac --publish never",
+    "dist:linux": "tsc && electron-builder --linux --publish never",
+    "dist:win:docker": "tsc && bash scripts/build-windows-docker.sh",
+    "content:sync": "node scripts/fetch-content.mjs",
+    "content:preview": "node scripts/fetch-content.mjs --local-out ./content-preview"
+  },
+  "packageManager": "pnpm@12.15.0",
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1160.0",
+    "@types/node": "^20.14.0",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.6.3"
+  },
+  "build": {
+    "appId": "com.example.idlepopup",
+    "productName": "Idle Popup",
+    "directories": {
+      "buildResources": "build",
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "renderer/**",
+      "assets/**",
+      "build/icon.png",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility"
+    }
+  }
+}

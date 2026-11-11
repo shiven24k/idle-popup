@@ -1,0 +1,77 @@
+:root {
+  --ink: #f7f8fa;
+  --soft: rgba(247, 248, 250, 0.6);
+  --base: #10141a;
+  --panel: #171d25;
+  --line: rgba(255, 255, 255, 0.09);
+  --accent: #7dd3c0;
+  --danger: #f08a8a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: var(--base);
+  color: var(--ink);
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: 18px;
+  user-select: none;
+}
+main { display: flex; flex-direction: column; height: 100%; }
+
+header { display: flex; align-items: baseline; justify-content: space-between; }
+h1 { font-size: 15px; font-weight: 600; letter-spacing: 0.01em; }
+.state {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.state.paused { color: var(--soft); }
+
+dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 7px 14px;
+  margin: 16px 0;
+  padding: 12px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+dt { color: var(--soft); }
+dd { text-align: right; font-variant-numeric: tabular-nums; }
+#detection { font-size: 11px; color: var(--soft); }
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 2px 0 12px;
+  color: var(--soft);
+  cursor: pointer;
+}
+.check input { accent-color: var(--accent); cursor: pointer; }
+
+.actions { display: flex; gap: 8px; margin-top: auto; }
+button {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+button:hover { border-color: rgba(255, 255, 255, 0.22); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+button.primary { background: var(--accent); border-color: transparent; color: #0b1512; font-weight: 600; }
+button.primary:hover { filter: brightness(1.05); }
+button.danger { color: var(--danger); flex: 0 1 auto; }
+
+.hint {
+  margin-top: 12px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--soft);
+}
